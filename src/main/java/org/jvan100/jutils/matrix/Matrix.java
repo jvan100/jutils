@@ -1,6 +1,6 @@
 package org.jvan100.jutils.matrix;
 
-import org.jvan100.jutils.IterUtils;
+import org.jvan100.jutils.iterable.Enumerator;
 
 import java.util.Arrays;
 
@@ -386,7 +386,7 @@ public class Matrix {
     public String toString() {
         final StringBuilder sb = new StringBuilder("[");
 
-        IterUtils.enumerate(arr).forEach((enumItem) -> {
+        Enumerator.enumerate(arr).forEach((enumItem) -> {
             if (enumItem.index() != 0)
                 sb.append(" ");
 
