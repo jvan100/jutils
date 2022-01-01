@@ -5,7 +5,7 @@ public abstract class Pair<U, V> {
     protected U first;
     protected V second;
 
-    public Pair(U first, V second) {
+    protected Pair(U first, V second) {
         this.first = first;
         this.second = second;
     }

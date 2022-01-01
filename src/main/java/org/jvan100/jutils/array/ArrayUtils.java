@@ -1,4 +1,4 @@
-package org.jvan100.jutils;
+package org.jvan100.jutils.array;
 
 import java.util.Comparator;
 
@@ -32,6 +32,7 @@ public class ArrayUtils {
         mergeSort(array, 0, array.length, desc, comparator);
     }
 
+    @SuppressWarnings("unchecked")
     public static <T> void mergeSort(T[] array, int start, int end, boolean desc, Comparator<? super T> comparator) {
         T[] read = array;
         T[] write = (T[]) new Object[array.length];

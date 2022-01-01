@@ -6,11 +6,6 @@ import java.util.Arrays;
 
 public class Matrix {
 
-    public static void main(String[] args) {
-        int[] a = {5, 4, 3, 2, 1};
-
-    }
-
     private double[][] arr;
     private int m;
     private int n;
@@ -88,8 +83,16 @@ public class Matrix {
         return transpose(this);
     }
 
+    public Matrix plus(double s) {
+        return plus(this, s);
+    }
+
     public Matrix plus(Matrix B) {
         return plus(this, B);
+    }
+
+    public Matrix plusEquals(double s) {
+        return plusEquals(this, s);
     }
 
     public Matrix plusEquals(Matrix B) {
@@ -160,6 +163,29 @@ public class Matrix {
         }
 
         return arrT;
+    }
+
+    public static Matrix plus(Matrix A, double s) {
+        final int m = A.getRowDimension();
+        final int n = A.getColDimension();
+
+        final Matrix B = new Matrix(m, n);
+
+        for (int row = 0; row < m; row++) {
+            for (int col = 0; col < n; col++)
+                B.set(row, col, A.get(row, col) + s);
+        }
+
+        return B;
+    }
+
+    public static Matrix plusEquals(Matrix A, double s) {
+        for (int row = 0; row < A.getRowDimension(); row++) {
+            for (int col = 0; col < A.getColDimension(); col++)
+                A.set(row, col, A.get(row, col) + s);
+        }
+
+        return A;
     }
 
     public static Matrix plus(Matrix A, Matrix B) {
